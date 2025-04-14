@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import MockupPhone from './MockupPhone';
 import { Bell, Calendar, Clock } from 'lucide-react';
+import AnimatedMedicineBackground from './AnimatedMedicineBackground';
 
 const HeroSection: React.FC = () => {
   const handleJoinWaitlist = () => {
@@ -28,6 +29,9 @@ const HeroSection: React.FC = () => {
         <div className="absolute top-[-30%] right-[-10%] w-[600px] h-[600px] bg-medsync-blue/20 rounded-full blur-3xl opacity-30"></div>
         <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-medsync-blue-light/20 rounded-full blur-3xl opacity-30"></div>
       </div>
+      
+      {/* Animated medicine objects */}
+      <AnimatedMedicineBackground />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center">
