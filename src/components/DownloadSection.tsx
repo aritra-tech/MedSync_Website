@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Smartphone, Mail } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
+import { supabase } from '@/lib/supabase';
 
 const emailSchema = z.string().email("Please enter a valid email address");
 
@@ -35,11 +35,14 @@ const DownloadSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // In a real app, you would send this to your backend/API
-      console.log("Waitlist signup:", email);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Store email in Supabase waitlist table
+      const { error } = await supabase
+        .from('waitlist')
+        .insert({ email });
+
+      if (error) {
+        throw error;
+      }
       
       // Clear form and show success message
       setEmail('');
@@ -48,12 +51,12 @@ const DownloadSection: React.FC = () => {
         description: "You've been added to our waitlist. We'll notify you when MedSync is available.",
       });
     } catch (error) {
+      console.error("Error submitting waitlist form:", error);
       toast({
         title: "Something went wrong",
         description: "Unable to join the waitlist. Please try again later.",
         variant: "destructive",
       });
-      console.error("Error submitting waitlist form:", error);
     } finally {
       setIsSubmitting(false);
     }
