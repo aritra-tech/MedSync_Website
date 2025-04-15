@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Smartphone, Mail } from 'lucide-react';
+import { Smartphone, Mail, AlertTriangle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
 const emailSchema = z.string().email("Please enter a valid email address");
 
@@ -35,6 +36,18 @@ const DownloadSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
+      // Check if Supabase is configured before proceeding
+      if (!isSupabaseConfigured()) {
+        toast({
+          title: "Configuration Error",
+          description: "Supabase is not properly configured. Please set the required environment variables.",
+          variant: "destructive",
+        });
+        console.error("Supabase configuration missing. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.");
+        setIsSubmitting(false);
+        return;
+      }
+
       // Store email in Supabase waitlist table
       const { error } = await supabase
         .from('waitlist')
@@ -81,6 +94,13 @@ const DownloadSection: React.FC = () => {
           </p>
           
           <div className="bg-white shadow-xl rounded-2xl p-8 mb-10">
+            {!isSupabaseConfigured() && (
+              <div className="bg-amber-50 border border-amber-200 text-amber-800 rounded-lg p-4 mb-6 flex items-center gap-2">
+                <AlertTriangle size={18} />
+                <span>Supabase is not configured. Waitlist submissions will not be saved. Please set the required environment variables.</span>
+              </div>
+            )}
+            
             <div className="flex items-center justify-center mb-6">
               <Smartphone size={32} className="text-medsync-blue mr-2" />
               <h3 className="text-2xl font-bold">Android App Coming Soon</h3>
