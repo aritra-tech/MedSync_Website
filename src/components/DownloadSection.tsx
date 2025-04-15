@@ -49,11 +49,22 @@ const DownloadSection: React.FC = () => {
       }
 
       // Store email in Supabase waitlist table
-      const { error } = await supabase
+      const { error, status } = await supabase
         .from('waitlist')
         .insert({ email });
 
       if (error) {
+        // Check if it's a duplicate email error
+        if (error.code === '23505') {
+          toast({
+            title: "Already Registered",
+            description: "This email is already on our waitlist. Thank you for your interest!",
+          });
+          setEmail('');
+          setIsSubmitting(false);
+          return;
+        }
+        
         throw error;
       }
       
