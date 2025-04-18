@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -42,26 +43,20 @@ const Footer: React.FC = () => {
               <h3 className="font-semibold mb-3 text-gray-900">Support</h3>
               <ul className="space-y-2">
                 <li>
-                  <a 
-                    href="https://medsync-app.vercel.app/privacy-policy.html" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-gray-600 hover:text-medsync-purple text-sm inline-flex items-center gap-1"
+                  <Link 
+                    to="/privacy" 
+                    className="text-gray-600 hover:text-medsync-purple text-sm"
                   >
                     Privacy Policy
-                    <ExternalLink size={14} />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a 
-                    href="https://medsync-app.vercel.app/terms.html" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-gray-600 hover:text-medsync-purple text-sm inline-flex items-center gap-1"
+                  <Link 
+                    to="/terms" 
+                    className="text-gray-600 hover:text-medsync-purple text-sm"
                   >
                     Terms
-                    <ExternalLink size={14} />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
