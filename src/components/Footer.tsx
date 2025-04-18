@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -41,16 +41,23 @@ const Footer: React.FC = () => {
             <div>
               <h3 className="font-semibold mb-3 text-gray-900">Support</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-600 hover:text-medsync-purple text-sm">Help Center</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-medsync-purple text-sm">Privacy Policy</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-medsync-purple text-sm">Terms of Service</a></li>
+                <li>
+                  <Link to="/privacy-policy" className="text-gray-600 hover:text-medsync-purple text-sm">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/terms-and-conditions" className="text-gray-600 hover:text-medsync-purple text-sm">
+                    Terms of Service
+                  </Link>
+                </li>
               </ul>
             </div>
             
             <div>
               <h3 className="font-semibold mb-3 text-gray-900">Contact</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-600 hover:text-medsync-purple text-sm">Email Us</a></li>
+                <li><a href="mailto:aritrarick2002@gmail.com" className="text-gray-600 hover:text-medsync-purple text-sm">Email Us</a></li>
                 <li><a href="#" className="text-gray-600 hover:text-medsync-purple text-sm">Feedback</a></li>
               </ul>
             </div>
