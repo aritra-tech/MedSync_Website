@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -41,7 +41,28 @@ const Footer: React.FC = () => {
             <div>
               <h3 className="font-semibold mb-3 text-gray-900">Support</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-600 hover:text-medsync-purple text-sm">Help Center</a></li>
+                <li>
+                  <a 
+                    href="https://medsync-app.vercel.app/privacy-policy.html" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-medsync-purple text-sm inline-flex items-center gap-1"
+                  >
+                    Privacy Policy
+                    <ExternalLink size={14} />
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://medsync-app.vercel.app/terms.html" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-medsync-purple text-sm inline-flex items-center gap-1"
+                  >
+                    Terms
+                    <ExternalLink size={14} />
+                  </a>
+                </li>
               </ul>
             </div>
             
