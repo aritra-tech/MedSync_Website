@@ -1,16 +1,14 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gradient-to-r from-blue-50 to-blue-100 py-12 border-t border-blue-100">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between mb-8">
-          <div className="mb-8 md:mb-0">
-            <div className="flex items-center space-x-2 mb-4 animate-fade-in">
-              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+          <div className="mb-8 md:mb-0 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start space-x-2 mb-4 animate-fade-in">
+              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500 hover:scale-105 transition-transform cursor-pointer">
                 MedSync
               </span>
             </div>
@@ -41,9 +39,10 @@ const Footer: React.FC = () => {
                 <li className="transition-all duration-300 hover:translate-x-1">
                   <a 
                     href="mailto:aritrarick2002@gmail.com" 
-                    className="text-gray-600 hover:text-blue-600 text-sm"
+                    className="text-gray-600 hover:text-blue-600 text-sm relative group"
                   >
                     Feedback
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full duration-300"></span>
                   </a>
                 </li>
               </ul>
@@ -52,9 +51,8 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="pt-8 border-t border-blue-100">
-          <p className="text-gray-600 text-sm text-center animate-fade-in flex items-center justify-center">
-            © {new Date().getFullYear()} MedSync. All rights reserved. 
-            <Heart className="h-3 w-3 text-blue-500 ml-1 animate-pulse-slow" />
+          <p className="text-gray-600 text-sm text-center animate-fade-in">
+            © {new Date().getFullYear()} MedSync. All rights reserved.
           </p>
         </div>
       </div>

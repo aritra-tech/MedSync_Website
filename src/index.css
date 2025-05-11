@@ -125,11 +125,11 @@
   }
   
   .primary-gradient-button {
-    @apply gradient-button bg-gradient-to-tr from-medsync-purple-light to-medsync-purple-dark hover:opacity-90 text-white shadow-md px-6 py-3;
+    @apply gradient-button bg-gradient-to-tr from-blue-400 to-blue-600 hover:opacity-90 text-white shadow-md px-6 py-3;
   }
   
   .secondary-gradient-button {
-    @apply gradient-button bg-gradient-to-tr from-medsync-blue-light to-medsync-blue-dark hover:opacity-90 text-white shadow-md px-6 py-3;
+    @apply gradient-button bg-gradient-to-tr from-blue-300 to-blue-500 hover:opacity-90 text-white shadow-md px-6 py-3;
   }
   
   /* Reveal animation for sections */
@@ -177,6 +177,42 @@
   }
 }
 
+@keyframes rotate-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-10px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -187,6 +223,22 @@
 
 .animate-fade-in {
   animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 12s linear infinite;
+}
+
+.animate-sway {
+  animation: sway 5s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s infinite;
+}
+
+.animate-ping {
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 /* Staggered animations helper classes */

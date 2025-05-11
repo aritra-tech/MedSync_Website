@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
           <div className="md:w-1/2 mb-10 md:mb-0 md:pr-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight animate-fade-in">
               <span className="block">Never Miss Your</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700 animate-pulse-slow">
                 Medications Again
               </span>
             </h1>
@@ -46,14 +46,14 @@ const HeroSection: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <Button 
-                className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-6 py-3 rounded-md shadow-md transition-transform hover:scale-105" 
+                className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-6 py-3 rounded-md shadow-md transition-all duration-300 hover:scale-110 hover:shadow-xl" 
                 onClick={handleJoinWaitlist}
               >
                 Join Waitlist
               </Button>
               <Button 
                 variant="outline" 
-                className="border-blue-500 text-blue-600 hover:bg-blue-50 transition-transform hover:scale-105" 
+                className="border-blue-500 text-blue-600 hover:bg-blue-50 transition-all duration-300 hover:scale-110" 
                 onClick={handleLearnMore}
               >
                 Learn More
@@ -62,19 +62,19 @@ const HeroSection: React.FC = () => {
             
             <div className="mt-10 grid grid-cols-3 gap-4">
               <div className="flex flex-col items-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2 transition-transform hover:scale-110 hover:bg-blue-200">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2 transition-transform hover:scale-110 hover:bg-blue-200 hover:rotate-6">
                   <Bell size={20} className="text-blue-600" />
                 </div>
                 <span className="text-sm text-gray-600 text-center">Smart Reminders</span>
               </div>
               <div className="flex flex-col items-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2 transition-transform hover:scale-110 hover:bg-blue-200">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2 transition-transform hover:scale-110 hover:bg-blue-200 hover:rotate-6">
                   <Calendar size={20} className="text-blue-600" />
                 </div>
                 <span className="text-sm text-gray-600 text-center">Appointment Tracking</span>
               </div>
               <div className="flex flex-col items-center animate-fade-in" style={{ animationDelay: '1s' }}>
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2 transition-transform hover:scale-110 hover:bg-blue-200">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2 transition-transform hover:scale-110 hover:bg-blue-200 hover:rotate-6">
                   <Clock size={20} className="text-blue-600" />
                 </div>
                 <span className="text-sm text-gray-600 text-center">Schedule Manager</span>
@@ -84,12 +84,13 @@ const HeroSection: React.FC = () => {
           
           <div className="md:w-1/2 flex justify-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <div className="relative">
-              <MockupPhone className="animate-float hover:animate-none" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-200 to-blue-400 rounded-full opacity-50 blur-lg animate-pulse-slow"></div>
+              <MockupPhone className="animate-float hover:animate-none relative" />
               
-              {/* Enhanced decorative elements */}
-              <div className="absolute top-1/4 -left-16 w-12 h-12 rounded-full bg-blue-300/30 animate-pulse-slow"></div>
-              <div className="absolute bottom-1/3 -right-8 w-8 h-8 rounded-full bg-blue-400/30 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-              <div className="absolute top-2/3 -left-12 w-10 h-10 rounded-full bg-blue-200/20 animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
+              {/* Decorative elements */}
+              <div className="absolute top-1/4 -left-16 w-12 h-12 rounded-full bg-blue-300/30 animate-ping" style={{ animationDuration: '3s' }}></div>
+              <div className="absolute bottom-1/3 -right-8 w-8 h-8 rounded-full bg-blue-400/30 animate-ping" style={{ animationDelay: '1s', animationDuration: '2.5s' }}></div>
+              <div className="absolute top-2/3 -left-12 w-10 h-10 rounded-full bg-blue-200/20 animate-ping" style={{ animationDelay: '1.5s', animationDuration: '4s' }}></div>
             </div>
           </div>
         </div>

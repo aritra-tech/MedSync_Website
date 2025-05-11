@@ -13,14 +13,14 @@ type FeatureProps = {
 const Feature: React.FC<FeatureProps> = ({ icon, title, description, color, delay = "0s" }) => {
   return (
     <div 
-      className="gradient-card p-6 transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] animate-fade-in" 
+      className="gradient-card group p-6 transition-all duration-500 hover:shadow-xl hover:translate-y-[-10px] animate-fade-in" 
       style={{ animationDelay: delay }}
     >
-      <div className={`w-14 h-14 ${color} rounded-full flex items-center justify-center mb-4 transform transition-transform hover:scale-110`}>
+      <div className={`w-14 h-14 ${color} rounded-full flex items-center justify-center mb-4 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12`}>
         {icon}
       </div>
-      <h3 className="text-xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500 transition-all duration-300 group-hover:pl-1">{title}</h3>
+      <p className="text-gray-600 transition-all duration-300 group-hover:pl-1">{description}</p>
     </div>
   );
 };
@@ -61,11 +61,11 @@ const FeaturesSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500 animate-pulse-slow">
               Powerful Features
             </span>
           </h2>
-          <div className="h-1 w-20 mx-auto bg-gradient-to-r from-blue-500 to-blue-300 mb-6 rounded-full"></div>
+          <div className="h-1 w-20 mx-auto bg-gradient-to-r from-blue-500 to-blue-300 mb-6 rounded-full animate-pulse-slow"></div>
           <p className="text-gray-600 max-w-xl mx-auto">
             MedSync combines intuitive design with powerful features to help you manage your health journey.
           </p>

@@ -35,26 +35,24 @@ const Index = () => {
       });
     });
     
-    // Add scroll reveal animation
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    const revealOnScroll = () => {
-      for (let i = 0; i < revealElements.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = revealElements[i].getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-          revealElements[i].classList.add('active');
+    // Enhanced scroll reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
         }
-      }
-    };
+      });
+    }, { threshold: 0.1 });
     
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Check on load
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach(element => {
+      observer.observe(element);
+    });
     
     return () => {
-      window.removeEventListener('scroll', revealOnScroll);
+      revealElements.forEach(element => {
+        observer.unobserve(element);
+      });
     };
   }, []);
   
